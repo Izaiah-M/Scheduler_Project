@@ -1,5 +1,5 @@
 import sqlite3
-from Mainly2 import Task
+from CreateTask import Task
 
 conn = sqlite3.connect("Calendar.db")
 c = conn.cursor()
@@ -38,19 +38,19 @@ def list_all_tasks():
         tasks.append(task)
     return tasks
 
-def list_personal_tasks():
-    c.execute("SELECT * FROM Task WHERE Category == 'Personal'")
-    rows = c.fetchall()
-    for row in rows:
-        for task in row:
-            print(task)
+# def list_personal_tasks():
+#     c.execute("SELECT * FROM Task WHERE Category == 'Personal'")
+#     rows = c.fetchall()
+#     for row in rows:
+#         for task in row:
+#             print(task)
 
-def list_school_tasks():
-    c.execute("SELECT * FROM Task WHERE Category == 'School'")
-    rows = c.fetchall()
-    for row in rows:
-        for task in row:
-            print(task)
+# def list_school_tasks():
+#     c.execute("SELECT * FROM Task WHERE Category == 'School'")
+#     rows = c.fetchall()
+#     for row in rows:
+#         for task in row:
+#             print(task)
 
 def remove_personal_task(taskId):
     e = 'DELETE FROM Task WHERE Id = ? AND Category == "Personal"'
