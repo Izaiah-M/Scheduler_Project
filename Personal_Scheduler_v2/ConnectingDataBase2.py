@@ -20,8 +20,8 @@ def insert_task(title, cat, desc,start,end,date):
 
 def list_all_tasks():
     tasks = []
-    c.execute("SELECT * FROM Task")
-    rows = c.fetchall()
+    rows = c.execute("SELECT * FROM Task")
+    # rows = c.fetchall()
 
     # Making instances of the things inserted in the database
     for row in rows:
@@ -29,13 +29,13 @@ def list_all_tasks():
         title = row[1]
         cat = row[2]
         desc = row[3]
-        start = [4]
-        end = [5]
+        start = row[4]
+        end = row[5]
         date = row[6]
         complete = row[7]
 
-        task = Task(Id, title, cat, desc, date,start,end, complete)
-        tasks.append(task)
+        # task = Task(Id, title, cat, desc, date,start,end, complete)
+        tasks.append(Task(Id, title, cat, desc, date,start,end, complete))
     return tasks
 
 # def list_personal_tasks():
@@ -52,17 +52,22 @@ def list_all_tasks():
 #         for task in row:
 #             print(task)
 
-def remove_personal_task(taskId):
-    e = 'DELETE FROM Task WHERE Id = ? AND Category == "Personal"'
+# def remove_personal_task(taskId):
+#     e = 'DELETE FROM Task WHERE Id = ? AND Category == "Personal"'
+#     c.execute(e, (taskId,))
+#     conn.commit()
+#     # print("Task #" + str(taskId) + " complete")
+
+
+# def remove_school_task(taskId):
+#     e = 'DELETE FROM Task WHERE Id = ? AND Category == "School"'
+#     c.execute(e, (taskId,))
+#     conn.commit()
+#     print("Task #" + str(taskId) + " complete")
+
+# removes tasks from the data base
+def remove_tasks(taskId):
+    e = 'DELETE FROM Task WHERE Id = ?'
     c.execute(e, (taskId,))
     conn.commit()
-    # print("Task #" + str(taskId) + " complete")
 
-
-def remove_school_task(taskId):
-    e = 'DELETE FROM Task WHERE Id = ? AND Category == "School"'
-    c.execute(e, (taskId,))
-    conn.commit()
-    print("Task #" + str(taskId) + " complete")
-
-# print(list_all_tasks())

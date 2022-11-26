@@ -13,8 +13,8 @@ def RandomizedValues():
         title = random.choice(titles)
         cat = random.choice(categories)
         desc = random.choice(descriptions)
-        start = random.randint(0,23)
-        end = random.randint(0,23)
+        start = random.randint(0,12)
+        end = random.randint(13,23)
         date = random.randint(1,30)
 
         insert_task(title,cat,desc,start,end,date)

@@ -1,52 +1,40 @@
 from Mainly2 import CreateTask
-from SortAlgos2 import personal_tasks, school_tasks
-from SortAlgos2 import all_tasks
+from SortAlgos2 import personal_tasks, school_tasks, tasks_of_specific_day, remove_task_from_specific2,busy_day,Upcomingtasks
+from ConnectingDataBase2 import list_all_tasks
 
 
 # Listing the tasks
 def listTasks():
-    print("1. All tasks (Both Personal and School tasks shall be listed)")
+    print("1. All tasks in Month (Both Personal and School tasks shall be listed)")
     print("2. Personal tasks")
     print("3. School tasks")
+    print("4. List tasks of a specific day")
+    print("5. View upcoming Tasks")
     print("")
     choice = input()
     print("")
 
     if (choice == str(1)):
-        all_tasks()
+        tasks = list_all_tasks()
+        for task in tasks:
+            print(task)
     elif (choice == str(2)):
         personal_tasks()
     elif (choice ==  str(3)):
         school_tasks()
+    elif (choice == str(4)):
+        day = int(input("Which day's tasks would you like to view: \n"))
+        tasks_of_specific_day(day)
+        busy_day(day)
+    elif (choice == str(5)):
+        Upcomingtasks()
 
 def removingTask():
-    print("What category does the task fall under")
-    print("1. Personal")
-    print("2. School")
-    print("")
-    choose = input()
-    print("")
+    day = int(input("Which day would you like to delete task from: \n"))
+    tasks_of_specific_day(day)
 
-    if choose == str(1):
-        personal_tasks()
-        print("")
-        print("Enter the id of the task you would like to remove: ")
-        num = input()
-        print("")
-        remove_personal_task(num)
-        print("")
-        list_personal_tasks()
-        print("")
-    elif choose == str(2):
-        list_school_tasks()
-        print("")
-        print("Enter the id of the task you would like to remove: ")
-        add = input()
-        print("")
-        remove_school_task(add)
-        print("")
-        list_school_tasks()
-        print("")
+    m = int(input("Enter the Id of the task: \n"))
+    remove_task_from_specific2(day, m)
 
 
     

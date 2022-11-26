@@ -19,8 +19,8 @@ def CreateTask():
     cat = str(input("Enter task category  (Personal or School): \n"))
     desc = str(input("Enter task description: \n"))
     date = int(input("Enter date you want the task to be done (1 to 30): \n"))
-    start = int(input("Enter time you want the task to start (0 to 23): \n"))
-    end = int(input("Enter time you want the task to end (0 to 23): \n"))
+    start = int(input("Enter time you want the task to start (0 to 12): \n"))
+    end = int(input("Enter time you want the task to end (13 to 23): \n"))
 
     # For putting the task into the data base
     insert_task(title, cat, desc,start,end,date)
