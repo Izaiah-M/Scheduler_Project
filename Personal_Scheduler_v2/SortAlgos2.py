@@ -59,3 +59,7 @@ def tasks_of_specific_day(date):
 
 tasks_of_specific_day(30)
 
+def returntasks():
+    tasks = list_all_tasks()
+    return tasks
+

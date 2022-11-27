@@ -29,8 +29,8 @@ def list_all_tasks():
         title = row[1]
         cat = row[2]
         desc = row[3]
-        start = [4]
-        end = [5]
+        start = row[4]
+        end = row[5]
         date = row[6]
         complete = row[7]
 

@@ -8,11 +8,11 @@ descriptions = ["This a sample description of a task","This also a sample descri
 
 def RandomizedValues():
     for i in range(0,45):
-        title = random.choice(titles)
+        title = "Title{}".format(i)
         cat = random.choice(categories)
         desc = random.choice(descriptions)
-        start = random.randint(0,23)
-        end = random.randint(0,23)
+        start = random.randint(0,12)
+        end = random.randint(13,23)
         date = random.randint(1,30)
 
         insert_task(title,cat,desc,start,end,date)
