@@ -1,5 +1,5 @@
 from Mainly2 import CreateTask
-from SortAlgos2 import personal_tasks, school_tasks, tasks_of_specific_day, remove_task_from_specific2,busy_day,Upcomingtasks
+from SortAlgos2 import personal_tasks, school_tasks, tasks_of_specific_day, remove_task_from_specific2,busy_day,Upcomingtasks, all_tasks, listing_all_personal, listing_all_school
 from ConnectingDataBase2 import list_all_tasks
 
 
@@ -15,13 +15,11 @@ def listTasks():
     print("")
 
     if (choice == str(1)):
-        tasks = list_all_tasks()
-        for task in tasks:
-            print(task)
+        all_tasks()
     elif (choice == str(2)):
-        personal_tasks()
+        listing_all_personal()
     elif (choice ==  str(3)):
-        school_tasks()
+        listing_all_school()
     elif (choice == str(4)):
         day = int(input("Which day's tasks would you like to view: \n"))
         tasks_of_specific_day(day)
