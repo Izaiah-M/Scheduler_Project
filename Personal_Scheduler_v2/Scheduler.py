@@ -1,6 +1,5 @@
 from Mainly2 import CreateTask
-from SortAlgos2 import personal_tasks, school_tasks, tasks_of_specific_day, remove_task_from_specific2,busy_day,Upcomingtasks, all_tasks, listing_all_personal, listing_all_school
-from ConnectingDataBase2 import list_all_tasks
+from SortAlgos2 import tasks_of_specific_day, remove_task_from_specific2,busy_day,Upcomingtasks, all_tasks, listing_all_personal, listing_all_school
 
 
 # Listing the tasks
