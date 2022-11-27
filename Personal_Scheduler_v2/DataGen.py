@@ -2,6 +2,8 @@ import random
 
 from ConnectingDataBase2 import insert_task
 
+
+# Here we are generating random data to play with in our data base.
 titles = ["Title1","Title2","Title3","Title4","Title5","Title6","Title7","Title8"]
 categories =["School","Personal"]
 descriptions = ["This a sample description of a task","This also a sample description of a task","This another sample description of a task"]

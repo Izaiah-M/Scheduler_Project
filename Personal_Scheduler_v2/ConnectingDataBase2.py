@@ -1,5 +1,5 @@
 import sqlite3
-from Mainly2 import Task
+from CreateTask import Task
 
 conn = sqlite3.connect("Calendar.db")
 c = conn.cursor()
@@ -20,8 +20,8 @@ def insert_task(title, cat, desc,start,end,date):
 
 def list_all_tasks():
     tasks = []
-    c.execute("SELECT * FROM Task")
-    rows = c.fetchall()
+    rows = c.execute("SELECT * FROM Task")
+    # rows = c.fetchall()
 
     # Making instances of the things inserted in the database
     for row in rows:
@@ -34,35 +34,40 @@ def list_all_tasks():
         date = row[6]
         complete = row[7]
 
-        task = Task(Id, title, cat, desc, date,start,end, complete)
-        tasks.append(task)
+        # task = Task(Id, title, cat, desc, date,start,end, complete)
+        tasks.append(Task(Id, title, cat, desc, date,start,end, complete))
     return tasks
 
-def list_personal_tasks():
-    c.execute("SELECT * FROM Task WHERE Category == 'Personal'")
-    rows = c.fetchall()
-    for row in rows:
-        for task in row:
-            print(task)
+# def list_personal_tasks():
+#     c.execute("SELECT * FROM Task WHERE Category == 'Personal'")
+#     rows = c.fetchall()
+#     for row in rows:
+#         for task in row:
+#             print(task)
 
-def list_school_tasks():
-    c.execute("SELECT * FROM Task WHERE Category == 'School'")
-    rows = c.fetchall()
-    for row in rows:
-        for task in row:
-            print(task)
+# def list_school_tasks():
+#     c.execute("SELECT * FROM Task WHERE Category == 'School'")
+#     rows = c.fetchall()
+#     for row in rows:
+#         for task in row:
+#             print(task)
 
-def remove_personal_task(taskId):
-    e = 'DELETE FROM Task WHERE Id = ? AND Category == "Personal"'
+# def remove_personal_task(taskId):
+#     e = 'DELETE FROM Task WHERE Id = ? AND Category == "Personal"'
+#     c.execute(e, (taskId,))
+#     conn.commit()
+#     # print("Task #" + str(taskId) + " complete")
+
+
+# def remove_school_task(taskId):
+#     e = 'DELETE FROM Task WHERE Id = ? AND Category == "School"'
+#     c.execute(e, (taskId,))
+#     conn.commit()
+#     print("Task #" + str(taskId) + " complete")
+
+# removes tasks from the data base
+def remove_tasks(taskId):
+    e = 'DELETE FROM Task WHERE Id = ?'
     c.execute(e, (taskId,))
     conn.commit()
-    # print("Task #" + str(taskId) + " complete")
 
-
-def remove_school_task(taskId):
-    e = 'DELETE FROM Task WHERE Id = ? AND Category == "School"'
-    c.execute(e, (taskId,))
-    conn.commit()
-    print("Task #" + str(taskId) + " complete")
-
-# print(list_all_tasks())
