@@ -1,14 +1,13 @@
 import datetime
 from ConnectingDataBase2 import list_all_tasks, remove_tasks 
 from Mainly2 import monthGenerator
-from Basic_Binary_search import binary_search
-
 
 # A list that holds all the tasks pulled from the database.
 tasks = list_all_tasks()
 
 # A list that contains the days in the month of November, these days are in form if lists
 November = monthGenerator(30)
+# print(November)
 
 def all_tasks():
     for task in tasks: #this runs in O(n)
@@ -49,6 +48,9 @@ def day_tasks():
     return November
 
 task_specific = day_tasks()
+print(f" unsorted tasks: {tasks}")
+print(f" sorted tasks: {task_specific}")
+# print(task_specific)
 
 # Function to return tasks of a specific day.
 def tasks_of_specific_day(date):            #O(n^2)
@@ -59,14 +61,14 @@ def tasks_of_specific_day(date):            #O(n^2)
 
 # A function to remove particular task from a given day with the use of our searchTasks function
 def remove_task_from_specific2(date,num):
-    lists = SearchTasks(date)                   #O(log(n))
+    lists = task_specific[date]                 #O(n)
     for task in lists:
         if task.TaskNo == num:
             task.iscompleted = True
             print("Task #" + task.description + " has been completed")
-            task_specific[date].remove(task)
+            lists.remove(task)
             remove_tasks(num)
-
+            
 # Function to check the busy days in the month basing off how many tasks are in the day/list
 def busy_days_in_month():
     for day in task_specific:       #O(n)
@@ -79,15 +81,7 @@ def busy_day(day):
         print("{} is a busy day".format(day))
     else:
         print(f"{day} is not busy")
-
-# Function to search for tasks using a moded binary search
-def SearchTasks(item):
-    task_specific = day_tasks()
-    ind = binary_search(task_specific,item)
-    return task_specific[int(ind)]
-
     
-
 # A Function to help notify the user of upcoming tasks/tasks fast approaching
 def Upcomingtasks():
     x = datetime.datetime.now()
@@ -95,11 +89,8 @@ def Upcomingtasks():
 
     for i in range(dateToday,len(task_specific)):   #O(n)
         if type(task_specific[i]) == list:
-            for task in task_specific[i]: 
+            for task in task_specific[i]:  #O(n)
              print(task)
-
-
-
 
 def returntasks():
     tasks = list_all_tasks()

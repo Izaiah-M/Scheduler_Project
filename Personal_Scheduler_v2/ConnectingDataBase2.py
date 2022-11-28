@@ -38,33 +38,6 @@ def list_all_tasks():
         tasks.append(Task(Id, title, cat, desc, date,start,end, complete))
     return tasks
 
-# def list_personal_tasks():
-#     c.execute("SELECT * FROM Task WHERE Category == 'Personal'")
-#     rows = c.fetchall()
-#     for row in rows:
-#         for task in row:
-#             print(task)
-
-# def list_school_tasks():
-#     c.execute("SELECT * FROM Task WHERE Category == 'School'")
-#     rows = c.fetchall()
-#     for row in rows:
-#         for task in row:
-#             print(task)
-
-# def remove_personal_task(taskId):
-#     e = 'DELETE FROM Task WHERE Id = ? AND Category == "Personal"'
-#     c.execute(e, (taskId,))
-#     conn.commit()
-#     # print("Task #" + str(taskId) + " complete")
-
-
-# def remove_school_task(taskId):
-#     e = 'DELETE FROM Task WHERE Id = ? AND Category == "School"'
-#     c.execute(e, (taskId,))
-#     conn.commit()
-#     print("Task #" + str(taskId) + " complete")
-
 # removes tasks from the data base
 def remove_tasks(taskId):
     e = 'DELETE FROM Task WHERE Id = ?'
