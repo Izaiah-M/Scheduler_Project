@@ -7,6 +7,7 @@ tasks = list_all_tasks()
 
 # A list that contains the days in the month of November, these days are in form if lists
 November = monthGenerator(30)
+# December = monthGenerator(31)
 # print(November)
 
 def all_tasks():
