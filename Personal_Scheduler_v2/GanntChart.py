@@ -6,7 +6,7 @@ from SortAlgos2 import returntasks
 
 #git
 TaskCompiler = returntasks()
-
+#function that turns the task list into  dictionaries to be used as a dataframe
 def TaskDict(list):
     tasklist = []
     for obj in list:
@@ -29,9 +29,6 @@ def DateChart(date):
     plt.xlabel("Duration For Tasks")
     plt.ylabel("Tasks At Hand")
     plt.savefig('Gannt Chart For Tasks.png')
-
-
-DateChart(15)
 
 # plt.barh(y=dl_df['task'], width=dl_df['width'], left=dl_df['timestart'])
 # plt.title("Gannt Chart Showing Tasks In Accordance With Their Deadlines")

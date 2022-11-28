@@ -1,4 +1,5 @@
 from Mainly2 import CreateTask
+from GanntChart import DateChart
 from SortAlgos2 import tasks_of_specific_day, remove_task_from_specific2,busy_day,Upcomingtasks, all_tasks, listing_all_personal, listing_all_school
 
 
@@ -22,6 +23,7 @@ def listTasks():
     elif (choice == str(4)):
         day = int(input("Which day's tasks would you like to view: \n"))
         tasks_of_specific_day(day)
+        DateChart(day)
         busy_day(day)
     elif (choice == str(5)):
         Upcomingtasks()
@@ -39,7 +41,7 @@ def removingTask():
 # Here we are calling it like our main function, its what is prompted to create a schedule.
 def creating_A_schedule():
     print("**************************************")
-    print("Heloo, welcome to your scheduler!!!")
+    print("Hello User, Welcome To Your Personal Scheduler!!!")
     print("")
     print("What would you like to do?")
     print("")
@@ -57,13 +59,13 @@ def creating_A_schedule():
     elif(option == str(3)):
         removingTask()
     print("")
-    print("Go back to Main menu? y/n")
+    print("Would you like to go back to the Main Menu? y/n")
     choice = input()
     print("")
     if choice == "y":
         creating_A_schedule()
     elif choice == "n":
-        print("Happy productivity!!")
+        print("Happy Productivity!!")
     
 
 creating_A_schedule()
